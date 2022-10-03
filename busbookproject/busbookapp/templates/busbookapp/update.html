@@ -1,0 +1,47 @@
+<html xmlns="http://www.w3.org/1999/html">
+{% extends "base1.html" %}
+{% block content %}
+
+    <h1> update Driver details</h1>
+    <form  method="POST">
+        {%csrf_token %}
+      drivername<input type="text" name="drivername" value="{{emp_data.drivername}}"><br>
+      age<input type="number" name="age" value="{{emp_data.age}}"><br>
+      contactnumber<input type="number" name="contact_no" value="{{emp_data.contact_no}}"><br>
+      Busnumber <input  type="text" name="bus_no" value="{{emp_data.bus_no}}"><br>
+<!--      employeedesignation <input type="radio" name="empdesignation" value="{{template.designation}}">-->
+<!--      <label for="empdesignation">empdesignatiomn:</label>-->
+<!--      <select name="programmer" id="designation">-->
+<!--      <option value="programmer">programmer</option>-->
+<!--    <option value="manager">manager</option>-->
+<!--  </select>-->
+
+
+       <input type="submit" value="update details">
+    </form>
+  {% endblock %}
+</html>
+
+
+
+ <div class="d-flex mb-5 align-items-center">
+                    <label class="control control--checkbox mb-0"><span class="caption">Admin</span>
+                        {{ form.is_admin }}
+                      <div class="control__indicator"></div>
+                    </label>
+                  </div>
+                  <div class="d-flex mb-5 align-items-center">
+                    <label class="control control--checkbox mb-0"><span class="caption">customer</span>
+                        {{ form.is_customer }}
+                      <div class="control__indicator"></div>
+                    </label>
+                  </div>
+                  <div class="d-flex mb-5 align-items-center">
+                    <label class="control control--checkbox mb-0"><span class="caption">employee</span>
+                        {{ form.is_employee }}
+                      <div class="control__indicator"></div>
+                    </label>
+                  </div>
+                    <span class="text-error">{{ form.errors }}</span>
+                  <input type="submit"  value="Register" class="btn btn-pill text-white btn-block btn-primary">
+                </form>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>group</title>
+</head>
+
+<body>
+
+
+<table id="mytable" class="datatable" cellspacing="1" cellpadding="1" border="1"  align="center" width="200" height="200">
+    <thead>
+        <tr class="dt-control" >
+            <th class="sorting_1" height="50">s no</th>
+            <th> group</th>
+
+
+        </tr>
+    </thead>
+    <tbody>
+            {% if grpdata %}
+            {% for temp in grpdata %}
+        <tr align="center">
+            <td>{{temp.id}}</td>
+            <td>{{temp.group}}</td>
+
+        </tr>
+
+    </tbody>
+      {% endfor %}
+      {% endif %}
+</table>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+
+<html>
+{% extends 'busbookapp/base1.html' %}
+{% block content %}
+<h1>Consumers Details</h1>
+
+<table border="1" width="850" height="200" bgcolor="lightblue">
+<tr bgcolor="">
+<th>Name</th>
+<th>Age</th>
+<th>Address</th>
+<th>Phone number</th>
+<th>Source</th>
+<th>Destination</th>
+<th>Date</th>
+<th>Time</th>
+<!--<th>Options</th>-->
+    </tr>
+
+<tr>
+     {% if info %}
+     {% for st in info %}
+
+     <td>{{st.name}}</td>
+     <td>{{st.age}}</td>
+     <td>{{st.address}}</td>
+     <td>{{st.phone}}</td>
+     <td>{{st.start}}</td>
+     <td>{{st.end}}</td>
+     <td>{{st.date}}</td>
+     <td>{{st.time}}</td>
+<!--    <td><a href="/updateconsumer/{{st.id}}">Update</a> &nbsp; &nbsp; <a href="/deleteconsumer/{{st.id}}"> Delete</a></td>-->
+
+    </tr>
+
+{% endfor %}
+{% endif %}
+</table>
+
+
+{% endblock%}
+</html>
