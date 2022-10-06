@@ -179,3 +179,15 @@ def foreignkey(request):
     grpdata=MyModel.objects.all()
     grpdata = {"grpdata":grpdata}
     return render(request, "busbookapp/foreignkey.html", context =grpdata)
+
+
+def selectionfeild(request):
+    selfield=User.objects.all()
+    selfield={"selfield":selfield}
+    return render(request, "busbookapp/register.html", context=selfield)
+
+def busseat(request):
+    return render(request,"busbookapp/busseat.html")
+
+def seat(request):
+    return render(request,"busbookapp/seat.html")

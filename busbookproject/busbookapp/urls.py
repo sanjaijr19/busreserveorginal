@@ -1,6 +1,5 @@
 from django.urls import path
 from . import views
-
 urlpatterns = [
     path('', views.index, name= 'index'),
     path('login/', views.login_view, name='login'),
@@ -28,4 +27,7 @@ urlpatterns = [
     path('login/home/',views.driverDetails, name='loginemployee'),
     path('login/customerview/',views.customerview, name='logincustomer'),
     path('foreignkey/',views.foreignkey, name='foreignkey'),
+    path('selectionfield/',views.selectionfeild, name='selectionfield'),
+    path('busseat/',views.busseat, name='busseat'),
+    path('seat/',views.seat, name='seat'),
 ]

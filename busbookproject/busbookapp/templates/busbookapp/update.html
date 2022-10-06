@@ -1,5 +1,5 @@
 <html xmlns="http://www.w3.org/1999/html">
-{% extends "base1.html" %}
+{% extends "busbookapp/base1.html" %}
 {% block content %}
 
     <h1> update Driver details</h1>
@@ -21,27 +21,3 @@
     </form>
   {% endblock %}
 </html>
-
-
-
- <div class="d-flex mb-5 align-items-center">
-                    <label class="control control--checkbox mb-0"><span class="caption">Admin</span>
-                        {{ form.is_admin }}
-                      <div class="control__indicator"></div>
-                    </label>
-                  </div>
-                  <div class="d-flex mb-5 align-items-center">
-                    <label class="control control--checkbox mb-0"><span class="caption">customer</span>
-                        {{ form.is_customer }}
-                      <div class="control__indicator"></div>
-                    </label>
-                  </div>
-                  <div class="d-flex mb-5 align-items-center">
-                    <label class="control control--checkbox mb-0"><span class="caption">employee</span>
-                        {{ form.is_employee }}
-                      <div class="control__indicator"></div>
-                    </label>
-                  </div>
-                    <span class="text-error">{{ form.errors }}</span>
-                  <input type="submit"  value="Register" class="btn btn-pill text-white btn-block btn-primary">
-                </form>
