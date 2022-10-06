@@ -1,4 +1,6 @@
 <!doctype html>
+{% extends 'busbookapp/base.html' %}
+{% block content %}
 {% load static %}
 <html lang="en">
 <h1 align="center" > <font size=" " color="#0a6ea3" face="Serif ">  welcome to bus resevation system</font>
@@ -35,12 +37,19 @@
                   <div class="mb-4">
                 </div>
 
-              <span class="mb-0 text-muted">
+
+
+
+                 <span class="mb-0 text-danger" >
                 {% if msg %}
                     {{ msg | safe }}
                 {% else %}
                     Login page
                 {% endif %}
+              </span>
+
+
+
               </span>
                 <form  method="post">
                     {% csrf_token %}
@@ -58,14 +67,14 @@
 <!--                      <input type="checkbox" checked="checked"/>-->
 <!--                      <div class="control__indicator"></div>-->
 <!--                    </label>-->
-                    <span class="ml-auto"><a href="#" class="forgot-pass" style="color:#9373f9" >Forgot Password</a></span>
+                    <span class="ml-auto"><a href="#" class="forgot-pass" style="color:#FF5733 " >Forgot Password</a></span>
                   </div>
 
-                  <input type="submit" value="Log In" class="btn btn-pill text-white btn-block btn-primary">
+                  <input type="submit" value="Log In" class="btn btn-pill text-white btn-block btn-info">
                 </form>
                 <div class="mt-4">
 					<div class="d-flex justify-content-center links" style="color:#de6aa7">
-						Don't have an account? <a href="{% url 'register' %}" class="ml-2" style="color:#03c1a3">Sign Up</a>
+						Don't have an account? <a href="{% url 'register' %}" class="ml-2" style="color:#204B11">Sign Up</a>
 					</div>
 
             </div>
@@ -85,4 +94,6 @@
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
     <script src="{% static 'js/main.js' %}"></script>
   </body>
+{% endblock%}
+
 </html>
