@@ -18,7 +18,7 @@ $(document).ready(function() {
             ],
             seats: {
                 f: {
-                    price: 200,
+                    price: 250,
                     classes: 'first-class', //your custom CSS class
                     category: 'First Class'
                 },

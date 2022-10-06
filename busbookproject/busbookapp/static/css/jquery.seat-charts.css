@@ -3,7 +3,7 @@ div.seatCharts-container {
 }
 div.seatCharts-cell {
 
-	height: 50px;
+	height: 5px;
 	width: 50px;
 	margin: 5px;
 	float: left;
@@ -32,7 +32,7 @@ div.seatCharts-seat:focus {
 */
 
 div.seatCharts-space {
-	background-color: lightblue;
+	background-color: white;
 }
 div.seatCharts-row {
 	height: 5px;
