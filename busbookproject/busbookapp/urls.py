@@ -30,4 +30,5 @@ urlpatterns = [
     path('selectionfield/',views.selectionfeild, name='selectionfield'),
     path('busseat/',views.busseat, name='busseat'),
     path('seat/',views.seat, name='seat'),
+    path('consumerwelcome/',views.consumerwelcome, name='consumerwelcome'),
 ]

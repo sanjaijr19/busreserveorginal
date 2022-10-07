@@ -43,7 +43,7 @@ def login_view(request):
                 return redirect('home')
             elif user is not None and user.is_customer:
                 login(request, user)
-                return redirect('customerview/')
+                return redirect('consumerwelcome')
             elif user is not None and user.is_employee:
                 login(request, user)
                 return redirect('draccess/')
@@ -191,3 +191,6 @@ def busseat(request):
 
 def seat(request):
     return render(request,"busbookapp/seat.html")
+
+def consumerwelcome(request):
+    return render(request,"busbookapp/consumerwelcome.html")

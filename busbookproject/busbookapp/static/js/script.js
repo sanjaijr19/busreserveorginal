@@ -46,7 +46,7 @@ $(document).ready(function() {
             click: function() {
                 if (this.status() == 'available') {
                     //let's create a new <li> which we'll add to the cart items
-                    $('<li>' + this.data().category + ' Seat # ' + this.settings.label + ': <b>$' + this.data().price + '</b> <a href="#" class="cancel-cart-item">[cancel]</a></li>')
+                    $('<li>' + this.data().category + ' Seat # ' + this.settings.label + ': <b>Rs.' + this.data().price + '</b> <a href="#" class="cancel-cart-item">[cancel]</a></li>')
                         .attr('id', 'cart-item-' + this.settings.id)
                         .data('seatId', this.settings.id)
                         .appendTo($cart);
@@ -128,14 +128,18 @@ $(function() {
                 selected.push(booked[k])
             })
         }
-        localStorage.setItem('booked', JSON.stringify(selected))
-        alert("Seats has been Reserved successfully.")
-        location.reload()
+        if (confirm("are you confirm the reservation of the bus?") === true) {
+
+            localStorage.setItem('booked', JSON.stringify(selected))
+
+            let text;
+            location.reload()
+        }
     })
     $('#reset-btn').click(function() {
         if (confirm("are you sure to reset the reservation of the bus?") === true) {
             localStorage.removeItem('booked')
-            alert("Seats has been Reset successfully.")
+            let text;
             location.reload()
         }
     })

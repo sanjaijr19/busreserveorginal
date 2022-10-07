@@ -3,7 +3,7 @@
 {% block content %}
 {% load static %}
 <html lang="en">
-<h1 align="center" > <font size=" " color="#0a6ea3" face="Serif ">  welcome to bus resevation system</font>
+<h1 align="center" > <font size=" " color="#00FFF3" face="Serif ">  welcome to bus resevation system</font>
 </h1>
   <head>
     <!-- Required meta tags -->
@@ -54,11 +54,11 @@
                 <form  method="post">
                     {% csrf_token %}
                   <div class="form-group first">
-                    <label for="username"style="color:grey">Username</label>
+                    <label for="username"style="color:white">Username</label>
                       {{ form.username }}
                   </div>
                   <div class="form-group last mb-4">
-                    <label for="username"style="color:grey">Password</label>
+                    <label for="username"style="color:white">Password</label>
                     {{ form.password }}
                   </div>
 
@@ -67,14 +67,14 @@
 <!--                      <input type="checkbox" checked="checked"/>-->
 <!--                      <div class="control__indicator"></div>-->
 <!--                    </label>-->
-                    <span class="ml-auto"><a href="#" class="forgot-pass" style="color:#FF5733 " >Forgot Password</a></span>
+                    <span class="ml-auto"><a href="#" class="forgot-pass" style="color:#901292     " >Forgot Password</a></span>
                   </div>
 
                   <input type="submit" value="Log In" class="btn btn-pill text-white btn-block btn-info">
                 </form>
                 <div class="mt-4">
-					<div class="d-flex justify-content-center links" style="color:#de6aa7">
-						Don't have an account? <a href="{% url 'register' %}" class="ml-2" style="color:#204B11">Sign Up</a>
+					<div class="d-flex justify-content-center links" style="color:#5B056E ">
+						Don't have an account? <a href="{% url 'register' %}" class="ml-2" style="color:#C30062">Sign Up</a>
 					</div>
 
             </div>

@@ -13,8 +13,7 @@
 
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-      <script src="{% static 'js/jquery.seat-charts.js'%}"></script>
+
 </head>
 
 <body >
@@ -40,7 +39,7 @@
                             <h3> Selected Seats (<span id="counter">0</span>):</h3>
                             <ul id="selected-seats"></ul>
 
-                            <h2>Total: <b>$<span id="total">0</span></b></h2>
+                            <h2>Total: <b>Rs.<span id="total">0</span></b></h2>
 
                             <button type="button" id="checkout-button">Submit Book</button>
 
@@ -54,7 +53,8 @@
         </div>
     </div>
 
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+      <script src="{% static 'js/jquery.seat-charts.js'%}"></script>
    <script src="{% static './js/script.js' %}"></script>
 </body>
 
