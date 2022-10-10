@@ -3,6 +3,8 @@ var booked = !!localStorage.getItem('booked') ? $.parseJSON(localStorage.getItem
 $(document).ready(function() {
     var $cart = $('#selected-seats'),
         $counter = $('#counter'),
+        $totalseat = $('#totalseat'),
+//        $rem-seat = $('#rem-seat'),
         $total = $('#total'),
         sc = $('#bus-seat-map').seatCharts({
             map: [
@@ -18,23 +20,25 @@ $(document).ready(function() {
             ],
             seats: {
                 f: {
-                    price: 250,
+                    price: 350,
                     classes: 'first-class', //your custom CSS class
                     category: 'First Class'
                 },
                 e: {
-                    price: 100,
+                    price: 250,
                     classes: 'economy-class', //your custom CSS class
                     category: 'Economy Class'
                 }
 
             },
+
             naming: {
                 top: false,
                 getLabel: function(character, row, column) {
                     return firstSeatLabel++;
                 },
             },
+
             legend: {
                 node: $('#legend'),
                 items: [
@@ -50,6 +54,9 @@ $(document).ready(function() {
                         .attr('id', 'cart-item-' + this.settings.id)
                         .data('seatId', this.settings.id)
                         .appendTo($cart);
+//                        let x=seatId.length;
+//                        document.write(x);
+
 
                     /*
                      * Lets update the counter and total
@@ -57,7 +64,11 @@ $(document).ready(function() {
                      * .find function will not find the current seat, because it will change its stauts only after return
                      * 'selected'. This is why we have to add 1 to the length and the current seat price to the total.
                      */
+                    $totalseat.text(sc.find('selected').length+1);
+
                     $counter.text(sc.find('selected').length + 1);
+//                    $counter.text(sc.find('selected').length + 1);/
+//                    $rem-seat.text(sc.find('selected').length - 1);
                     $total.text(recalculateTotal(sc) + this.data().price);
 
                     return 'selected';
@@ -65,6 +76,7 @@ $(document).ready(function() {
                 } else if (this.status() == 'selected') {
 
                     //update the counter
+                    $counter.text(sc.find('selected').length);
                     $counter.text(sc.find('selected').length - 1);
 
                     //and total
