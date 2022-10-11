@@ -56,3 +56,7 @@ class SignUpForm(UserCreationForm):
         model = User
         fields = ('username', 'email', 'password1', 'password2','is_admin','is_customer','is_employee', )
 
+class ContactForm(forms.Form):
+    name = forms.CharField(max_length=255)
+    email = forms.EmailField()
+    content = forms.CharField(widget=forms.Textarea)

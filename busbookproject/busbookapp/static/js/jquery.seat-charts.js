@@ -477,7 +477,7 @@
 						.append(
 							$('<div></div>')
 								//merge user defined classes with our standard ones
-								.addClass(['seatCharts-seat', 'seatCharts-cell', item[1]].concat(
+								.addClass(['seatCharts-seat','seatCharts-cell', item[1]].concat(
 									settings.classes,
 									typeof settings.seats[item[0]] == "undefined" ? [] : settings.seats[item[0]].classes).join(' ')
 								)
@@ -490,7 +490,7 @@
 				);
 			});
 
-			return $totalseat--;
+			return $totalseat;
 		})(settings.legend) : null;
 
 		fn.attr({

@@ -20,12 +20,12 @@ $(document).ready(function() {
             ],
             seats: {
                 f: {
-                    price: 350,
+                    price: 1000,
                     classes: 'first-class', //your custom CSS class
                     category: 'First Class'
                 },
                 e: {
-                    price: 250,
+                    price: 750,
                     classes: 'economy-class', //your custom CSS class
                     category: 'Economy Class'
                 }
@@ -64,9 +64,9 @@ $(document).ready(function() {
                      * .find function will not find the current seat, because it will change its stauts only after return
                      * 'selected'. This is why we have to add 1 to the length and the current seat price to the total.
                      */
-                    $totalseat.text(sc.find('selected').length+1);
+                     $totalseat.text(sc.find('selected').length-34);
 
-                    $counter.text(sc.find('selected').length + 1);
+                    $counter.text(sc.find('selected').length+1);
 //                    $counter.text(sc.find('selected').length + 1);/
 //                    $rem-seat.text(sc.find('selected').length - 1);
                     $total.text(recalculateTotal(sc) + this.data().price);
@@ -76,8 +76,9 @@ $(document).ready(function() {
                 } else if (this.status() == 'selected') {
 
                     //update the counter
-                    $counter.text(sc.find('selected').length);
+//                    $counter.text(sc.find('selected').length);
                     $counter.text(sc.find('selected').length - 1);
+                    $totalseat.text(sc.find('selected').length - 36);
 
                     //and total
                     $total.text(recalculateTotal(sc) - this.data().price);
@@ -140,7 +141,7 @@ $(function() {
                 selected.push(booked[k])
             })
         }
-        if (confirm("are you confirm the reservation of the bus?") === true) {
+        if (confirm("Are you confirm the reservation of the bus?") === true) {
 
             localStorage.setItem('booked', JSON.stringify(selected))
 
@@ -149,7 +150,7 @@ $(function() {
         }
     })
     $('#reset-btn').click(function() {
-        if (confirm("are you sure to reset the reservation of the bus?") === true) {
+        if (confirm("Are you sure to reset the reservation of the bus?") === true) {
             localStorage.removeItem('booked')
             let text;
             location.reload()

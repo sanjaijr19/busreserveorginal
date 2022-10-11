@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 # Create your views here.
 from django.shortcuts import render, redirect
-from .forms import SignUpForm,LoginForm
+from .forms import SignUpForm,LoginForm,ContactForm
 from busbookapp.form1 import DriverForm,CustomerForm
 from django.contrib.auth import authenticate, login
 # Create your views here.
@@ -194,3 +194,30 @@ def seat(request):
 
 def consumerwelcome(request):
     return render(request,"busbookapp/consumerwelcome.html")
+
+from django.core.mail import send_mail
+from django.shortcuts import render,redirect
+from django.template.loader import render_to_string
+from .forms import ContactForm
+
+def mail(request):
+    if request.method=='POST':
+        form=ContactForm(request.POST)
+
+        if form.is_valid():
+            name=form.cleaned_data['name']
+            email=form.cleaned_data['email']
+            content=form.cleaned_data['content']
+
+            html=render_to_string('busbookapp/email.html',{
+                'name':name,
+                'email':email,
+                'content':content
+            })
+            send_mail('The contact form subject', 'This is the message', 'sanjaikumar@market-intellect.com',
+                      ['udayajone@gmail.com'], html_message=html)
+            return redirect("/mail")
+
+    else:
+        form = ContactForm()
+        return render(request, 'busbookapp/mail.html', {'form': form})

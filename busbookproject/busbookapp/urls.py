@@ -31,4 +31,5 @@ urlpatterns = [
     path('busseat/',views.busseat, name='busseat'),
     path('seat/',views.seat, name='seat'),
     path('consumerwelcome/',views.consumerwelcome, name='consumerwelcome'),
+    path('mail/',views.mail, name='mail'),
 ]
