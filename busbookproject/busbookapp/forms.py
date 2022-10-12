@@ -58,5 +58,12 @@ class SignUpForm(UserCreationForm):
 
 class ContactForm(forms.Form):
     name = forms.CharField(max_length=255)
+    age = forms.IntegerField()
     email = forms.EmailField()
+    address = forms.CharField(max_length=255)
+    contact_no = forms.IntegerField()
+    start = forms.CharField(max_length=30)
+    end = forms.CharField(max_length=20)
+    date = forms.DateField( widget=forms.SelectDateWidget)
+    time = forms.TimeField(widget=forms.TimeInput(format='%H:%M:%AM'))
     content = forms.CharField(widget=forms.Textarea)

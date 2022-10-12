@@ -50,10 +50,10 @@ $(document).ready(function() {
             click: function() {
                 if (this.status() == 'available') {
                     //let's create a new <li> which we'll add to the cart items
-                    $('<li>' + this.data().category + ' Seat # ' + this.settings.label + ': <b>Rs.' + this.data().price + '</b> <a href="#" class="cancel-cart-item">[cancel]</a></li>')
+                    console.log($('<li>' + this.data().category + ' Seat # ' + this.settings.label + ': <b>Rs.' + this.data().price + '</b> <a href="#" class="cancel-cart-item">[cancel]</a></li>')
                         .attr('id', 'cart-item-' + this.settings.id)
                         .data('seatId', this.settings.id)
-                        .appendTo($cart);
+                        .appendTo($cart);,"@@######")
 //                        let x=seatId.length;
 //                        document.write(x);
 
@@ -64,7 +64,11 @@ $(document).ready(function() {
                      * .find function will not find the current seat, because it will change its stauts only after return
                      * 'selected'. This is why we have to add 1 to the length and the current seat price to the total.
                      */
-                     $totalseat.text(sc.find('selected').length-34);
+                     console.log($totalseat,"00####&&&&&******@@@");
+                     $totalseat.text(34-sc.find('selected').length);
+                     console.log($totalseat,"hihello0000000000")
+
+
 
                     $counter.text(sc.find('selected').length+1);
 //                    $counter.text(sc.find('selected').length + 1);/

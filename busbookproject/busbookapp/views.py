@@ -9,7 +9,11 @@ from django.contrib.auth import authenticate, login
 from django.shortcuts import render,redirect,HttpResponse
 from busbookapp.models import Driver,Customer,User,MyModel
 from django.contrib.auth import authenticate, login, logout
-
+from django.core.mail import send_mail
+from django.core.mail import EmailMessage
+from django.shortcuts import render,redirect
+from django.template.loader import render_to_string
+from .forms import ContactForm
 
 def index(request):
     return render(request, 'busbookapp/index.html')
@@ -20,7 +24,19 @@ def register(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
         if form.is_valid():
+            username = form.cleaned_data.get('username')
+            email = form.cleaned_data.get('email')
+            password1 = form.cleaned_data.get('password1')
+            password2 = form.cleaned_data.get('password2')
             user = form.save()
+            message = f" Hi {username}!\n Welcome to Bus Reservation System\n You Successfully registered with us !"
+            email_msg = EmailMessage(
+                subject="Booking Details",
+                body=message,
+                from_email='sanjaikumar@market-intellect.com',
+                to=[email],
+                reply_to=[email])
+            email_msg.send()
             msg = 'user created'
             return redirect('login')
         else:
@@ -195,10 +211,11 @@ def seat(request):
 def consumerwelcome(request):
     return render(request,"busbookapp/consumerwelcome.html")
 
-from django.core.mail import send_mail
-from django.shortcuts import render,redirect
-from django.template.loader import render_to_string
-from .forms import ContactForm
+# from django.core.mail import send_mail
+# from django.core.mail import EmailMessage
+# from django.shortcuts import render,redirect
+# from django.template.loader import render_to_string
+# from .forms import ContactForm
 
 def mail(request):
     if request.method=='POST':
@@ -206,18 +223,47 @@ def mail(request):
 
         if form.is_valid():
             name=form.cleaned_data['name']
+            age=form.cleaned_data['age']
             email=form.cleaned_data['email']
-            content=form.cleaned_data['content']
+            address = form.cleaned_data['address']
+            contact_no = form.cleaned_data['contact_no']
+            start = form.cleaned_data['start']
+            end = form.cleaned_data['end']
+            date = form.cleaned_data['date']
+            time = form.cleaned_data['time']
+            content = form.cleaned_data['content']
 
             html=render_to_string('busbookapp/email.html',{
                 'name':name,
+                'age':age,
                 'email':email,
-                'content':content
+                'address': address,
+                'contact_no':contact_no,
+                'start':start,
+                'end':end,
+                'date':date,
+                'time':time,
+                'content': content,
             })
-            send_mail('The contact form subject', 'This is the message', 'sanjaikumar@market-intellect.com',
-                      ['udayajone@gmail.com'], html_message=html)
-            return redirect("/mail")
+            message=f"name: {name}\nemail: {email}\naddress: {address}\nphone: {contact_no}\nstart: {start}\nend: {end}\ndate: {date}\ntime: {time}\nmessage: {content}"
+            email_msg=EmailMessage(
+                subject="Booking Details",
+                body=message,
+                from_email='sanjaikumar@market-intellect.com',
+                to=[email],
+                reply_to=[email])
+            email_msg.send()
+
+            # send_mail('Booking Details', 'This is the message', 'sanjaikumar@market-intellect.com',
+            #           ['janavinoth2000@gmail.com'], html_message=html)
+            return redirect("/thank")
 
     else:
         form = ContactForm()
         return render(request, 'busbookapp/mail.html', {'form': form})
+
+
+
+
+def thank(request):
+    return render(request,"busbookapp/thank.html")

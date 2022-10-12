@@ -32,4 +32,6 @@ urlpatterns = [
     path('seat/',views.seat, name='seat'),
     path('consumerwelcome/',views.consumerwelcome, name='consumerwelcome'),
     path('mail/',views.mail, name='mail'),
+    path('mail/thank/',views.thank, name='thank'),
+    path('thank/',views.thank, name='thank'),
 ]
