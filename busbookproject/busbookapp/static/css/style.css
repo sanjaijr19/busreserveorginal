@@ -7,10 +7,10 @@ body {
 }
 
 body {
-    font-family: cursive;
+    font-family: Georgia;
     max-height: 100%;
     overflow: auto;
-    background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+    background-image: linear-gradient(to top, #30cfd0 0%, #036F75  100%);
     color: #e5e3e3;
     overflow-x: hidden;
 }

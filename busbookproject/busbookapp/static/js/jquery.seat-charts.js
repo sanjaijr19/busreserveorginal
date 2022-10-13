@@ -463,7 +463,7 @@
 
 	settings.legend.items.length ? (function(legend) {
 			//either use user-defined container or create our own and insert it right after the seat chart div
-			var $totalseat = (legend.node || $('<div></div').insertAfter(fn))
+//			var $totalseat = (legend.node || $('<div></div').insertAfter(fn))
 				.addClass('seatCharts-legend');
 
 			var $ul = $('<ul></ul>')

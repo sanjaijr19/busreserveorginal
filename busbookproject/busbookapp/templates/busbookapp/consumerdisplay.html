@@ -2,34 +2,44 @@
 <html>
 {% extends 'busbookapp/base1.html' %}
 {% block content %}
+{% load static %}
+   <link rel="stylesheet" href="{% static 'fonts/icomoon/style.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+
+    <!-- Bootstrap CSS -->
+<!--    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">-->
+
+    <!-- Style -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 <h1>  &nbsp;consumers Details</h1>
 
 <table border="1" width="850" height="200" bgcolor="lightblue">
 <tr bgcolor="">
-<th>Name</th>
-<th>Age</th>
-<th>Address</th>
-<th>Phone number</th>
-<th>Source</th>
-<th>Destination</th>
-<th>Date</th>
-<th>Time</th>
-<th>Options</th>
+<th style="color:black" >Name</th>
+<th style="color:black">Age</th>
+<th style="color:black">Address</th>
+<th style="color:black">Phone number</th>
+<th style="color:black">Source</th>
+<th style="color:black">Destination</th>
+<th style="color:black">Date</th>
+<th style="color:black">Time</th>
+<th style="color:black">Options</th>
     </tr>
 
-<tr>
+<tr bg>
      {% if info %}
      {% for st in info %}
 
-     <td>{{st.name}}</td>
-     <td>{{st.age}}</td>
-     <td>{{st.address}}</td>
-     <td>{{st.phone}}</td>
-     <td>{{st.start}}</td>
-     <td>{{st.end}}</td>
-     <td>{{st.date}}</td>
-     <td>{{st.time}}</td>
-    <td><a href="/updateconsumer/{{st.id}}">Update</a> &nbsp; &nbsp; <a href="/deleteconsumer/{{st.id}}"> Delete</a></td>
+     <td style="color:black">{{st.name}}</td>
+     <td style="color:black">{{st.age}}</td>
+     <td style="color:black">{{st.address}}</td>
+     <td style="color:black">{{st.phone}}</td>
+     <td style="color:black">{{st.start}}</td>
+     <td style="color:black">{{st.end}}</td>
+     <td style="color:black">{{st.date}}</td>
+     <td style="color:black">{{st.time}}</td>
+    <td style="color:black"><a href="/updateconsumer/{{st.id}}">Update</a> &nbsp; &nbsp; <a href="/deleteconsumer/{{st.id}}"> Delete</a></td>
 
     </tr>
 
@@ -42,8 +52,8 @@
 <a href="/addconsumer" ><button type= "button"><font color = "purple">Add new consumer Details </button></a></p>
 
 </p>
- <p align="right">
-    <a   href = "/home" >  <button  type="button" > previouspage</button>  </a>
-        </p>
+<!-- <p align="right">-->
+<!--    <a   href = "/home" >  <button  type="button" > previouspage</button>  </a>-->
+<!--        </p>-->
 {% endblock%}
 </html>

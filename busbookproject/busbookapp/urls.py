@@ -34,4 +34,11 @@ urlpatterns = [
     path('mail/',views.mail, name='mail'),
     path('mail/thank/',views.thank, name='thank'),
     path('thank/',views.thank, name='thank'),
+    path('adminwelcome/',views.adminwelcome, name='adminwelcome'),
+    path('busdisplay/',views.Busdisplay, name='busdisplay'),
+    path('busadd/',views.Busadd, name='busadd'),
+    path('busupdate/<id>',views.Busupdate, name='busupdate'),
+    path('drwelcome/',views.drwelcome, name='drwelcome'),
+    path('login/drwelcome/',views.drwelcome, name='drwelcome'),
+    path('conseat',views.conseat, name='conseat'),
 ]

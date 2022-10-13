@@ -1,8 +1,10 @@
 <html>
 {% extends "busbookapp/base1.html" %}
 {%block content %}
+{% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <h1>
-        Add new Drivers details here
+        Add New Drivers Details
     </h1>
     <form method="POST">
           {{form.as_p}}

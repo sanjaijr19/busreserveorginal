@@ -1,7 +1,8 @@
 <html>
 {% extends 'busbookapp/base1.html' %}
 {% block content %}
-
+{% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 <head>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
     <script type="text/javascript" charset="utf8" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
@@ -19,9 +20,9 @@
 <h1 >
     Driver Details
 </h1>
-<table id="mytable" class="datatable" cellspacing="1" cellpadding="1" border="1" >
+<table id="mytable" class="datatable" cellspacing="1" cellpadding="1" border="1" bgcolor="lightblue">
     <thead>
-        <tr class="dt-control">
+        <tr class="dt-control" style="color:black">
 
             <th class="sorting_1"> Driver name</th>
             <th> age</th>
@@ -34,13 +35,13 @@
     </thead>
     <tbody>
 
-        <tr>
+        <tr style="color:black">
             {% if emp_list %}
             {% for template in emp_list %}
-            <td>{{template.drivername}}</td>
-            <td>{{template.age}}</td>
-            <td>{{template.contact_no}}</td>
-            <td>{{template.bus_no}}</td>
+            <td style="color:black">{{template.drivername}}</td>
+            <td style="color:black">{{template.age}}</td>
+            <td style="color:black">{{template.contact_no}}</td>
+            <td style="color:black">{{template.bus_no}}</td>
 
 
         </tr>

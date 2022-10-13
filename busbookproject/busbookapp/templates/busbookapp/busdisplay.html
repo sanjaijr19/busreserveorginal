@@ -1,0 +1,59 @@
+
+<html>
+{% extends 'busbookapp/base1.html' %}
+{% block content %}
+{% load static %}
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+<p></p><h1 align="Center"><u>Bus<span style="color:white"> Details</span></p></u></h1>
+<style>
+    h2{color:blue;}
+</style>
+<table border="1" width="850" height="200" bgcolor="lightblue">
+<font color="black">
+
+<tr bgcolor="lightblue">
+
+<th rowspan="2" ><font color="black">Bus_name</font></th>
+<th rowspan="2"><font color="black">Bus_number</font></th>
+<th colspan="2"><font color="black">Route</font></th>
+<th rowspan="2"><font color="black">Total seat</font></th>
+<th rowspan="2"><font color="black">Amount</font></th>
+<th rowspan="2"><font color="black">Date</font></th>
+<th rowspan="2"><font color="black">Time</font></th>
+<th rowspan="2"><font color ="black">Options</font></th>
+    </tr>
+    <tr bgcolor="lightblue">
+    <th><font color="black">Source</font></th>
+    <th><font color="black">Destination</font></th>
+    </tr>
+</th>
+
+<tr>
+     {% if ticket1 %}
+     {% for st in ticket1 %}
+
+
+
+     <td><font color="black">  {{st.bus_name}}</td>
+     <td><font color="black">{{st.bus_no}}</td>
+     <td><font color="black">{{st.start}}</td>
+     <td><font color="black">{{st.end}}</td>
+     <td><font color="black">{{st.seats}}</td>
+     <td><font color="black">{{st.amount}}</td>
+     <td><font color="black">{{st.date}}</td>
+     <td><font color="black">{{st.time}}</td>
+    <td><font color="black"><a href="/busupdate/{{st.id}}">Update</a> &nbsp; &nbsp; <a href="/delete/{{st.id}}"> Delete</a></td>
+
+    </tr>
+
+{% endfor %}
+{% endif %}
+</table>
+<br>
+<br>
+<p align="left">
+<a href="/busadd" ><button type= "button"><font color="green">Add new Bus Details </font></button></a></p>
+{% endblock%}
+
+</html>

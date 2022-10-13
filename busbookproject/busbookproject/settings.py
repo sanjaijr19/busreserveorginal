@@ -126,7 +126,7 @@ STATIC_URL = '/static/'
 
 # EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
 EMAIL_BACKEND='django_smtp_ssl.SSLEmailBackend'
-EMAIL_HOST_USER='sanjaikumar@market-intellect.com'
+EMAIL_HOST_USER='soorya@market-intellect.com'
 EMAIL_HOST ='smtp.zoho.com'
 EMAIL_PORT=465
 EMAIL_USE_TLS=True

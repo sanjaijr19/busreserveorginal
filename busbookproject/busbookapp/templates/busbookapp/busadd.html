@@ -1,0 +1,16 @@
+
+<html lang="en">
+{% extends 'busbookapp/base.html' %}
+{% block content %}
+{% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+<h1>Add new bus detail</h1>
+<form method ='POST'>
+    {{form.as_p}}
+    {% csrf_token %}
+    <input type = 'submit' value = 'Add bus details'>
+</form>
+   {% endblock %}
+
+
+</html>

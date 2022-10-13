@@ -3,11 +3,11 @@ from django.shortcuts import render
 # Create your views here.
 from django.shortcuts import render, redirect
 from .forms import SignUpForm,LoginForm,ContactForm
-from busbookapp.form1 import DriverForm,CustomerForm
+from busbookapp.form1 import DriverForm,CustomerForm,BusForm
 from django.contrib.auth import authenticate, login
 # Create your views here.
 from django.shortcuts import render,redirect,HttpResponse
-from busbookapp.models import Driver,Customer,User,MyModel
+from busbookapp.models import Driver,Customer,User,MyModel,Bus
 from django.contrib.auth import authenticate, login, logout
 from django.core.mail import send_mail
 from django.core.mail import EmailMessage
@@ -26,14 +26,16 @@ def register(request):
         if form.is_valid():
             username = form.cleaned_data.get('username')
             email = form.cleaned_data.get('email')
+            if User.objects.filter(email=email).exists():
+                raise ValidationError("Email already exists")
             password1 = form.cleaned_data.get('password1')
             password2 = form.cleaned_data.get('password2')
             user = form.save()
-            message = f" Hi {username}!\n Welcome to Bus Reservation System\n You Successfully registered with us !"
+            message = f" Hi {username}!\n Welcome to Bus Reservation System\n You Successfully registered with us ! \nlink: http://127.0.0.1:8000/login/"
             email_msg = EmailMessage(
                 subject="Booking Details",
                 body=message,
-                from_email='sanjaikumar@market-intellect.com',
+                from_email='soorya@market-intellect.com',
                 to=[email],
                 reply_to=[email])
             email_msg.send()
@@ -56,13 +58,13 @@ def login_view(request):
             user = authenticate(username=username, password=password,)
             if user is not None and user.is_admin:
                 login(request, user)
-                return redirect('home')
+                return redirect('adminwelcome')
             elif user is not None and user.is_customer:
                 login(request, user)
                 return redirect('consumerwelcome')
             elif user is not None and user.is_employee:
                 login(request, user)
-                return redirect('draccess/')
+                return redirect('drwelcome/')
             else:
                 msg= 'incorrect username or password'
         else:
@@ -211,6 +213,10 @@ def seat(request):
 def consumerwelcome(request):
     return render(request,"busbookapp/consumerwelcome.html")
 
+
+def adminwelcome(request):
+    return render(request,"busbookapp/adminwelcome.html")
+
 # from django.core.mail import send_mail
 # from django.core.mail import EmailMessage
 # from django.shortcuts import render,redirect
@@ -245,7 +251,7 @@ def mail(request):
                 'time':time,
                 'content': content,
             })
-            message=f"name: {name}\nemail: {email}\naddress: {address}\nphone: {contact_no}\nstart: {start}\nend: {end}\ndate: {date}\ntime: {time}\nmessage: {content}"
+            message=f"name: {name}\nemail: {email}\naddress: {address}\nphone: {contact_no}\nstart: {start}\nend: {end}\ndate: {date}\ntime: {time}\nmessage: {content}\n link: "
             email_msg=EmailMessage(
                 subject="Booking Details",
                 body=message,
@@ -267,3 +273,53 @@ def mail(request):
 
 def thank(request):
     return render(request,"busbookapp/thank.html")
+def drwelcome(request):
+    return render(request,"busbookapp/driverwelcome.html")
+
+def conseat(request):
+    return render(request,"busbookapp/consumerseat.html")
+def Busdisplay(request):
+    ticket1 = Bus.objects.all()
+    return render(request, "busbookapp/busdisplay.html", {"ticket1": ticket1})
+
+
+def Busadd(request):
+    form = BusForm()
+    if request.method == 'POST':
+        form = BusForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/busdisplay')
+
+    return render(request, 'busbookapp/busadd.html', {'form': form})
+
+
+def Busupdate(request, id):
+    bus_data = Bus.objects.get(id=id)
+    if request.method == 'POST':
+        bus_name = request.POST["bus_name"]
+        bus_num = request.POST["bus_num"]
+        start = request.POST["start"]
+        end = request.POST["end"]
+        seats = request.POST["seats"]
+        amount = request.POST["amount"]
+        date = request.POST["date"]
+        time = request.POST["time"]
+        bus_data.bus_name = bus_name
+        bus_data.bus_num = bus_num
+        bus_data.start = start
+        bus_data.end = end
+        bus_data.seats = seats
+        bus_data.amount = amount
+        bus_data.date = date
+        bus_data.time = time
+        bus_data.save()
+
+        return redirect('/busdisplay')
+    return render(request, 'busbookapp/busupdate.html', {"bus_data": bus_data})
+
+
+def Busdelete(request, id):
+    bus_data = Bus.objects.get(id=id)
+    bus_data.delete()
+    return redirect('/busdisplay')

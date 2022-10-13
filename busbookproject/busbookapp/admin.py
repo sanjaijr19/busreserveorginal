@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import User,MyModel
+from .models import User,MyModel,Bus
 
 # Register your models here.
 from django.contrib import admin
@@ -19,6 +19,7 @@ admin.site.register(Driver,DriverAdmin)
 admin.site.register(Customer,CustomerAdmin)
 admin.site.register(User,UserAdmin)
 admin.site.register(MyModel)
+admin.site.register(Bus)
 
 # Register your models here.
 

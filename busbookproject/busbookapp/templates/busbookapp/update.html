@@ -1,6 +1,8 @@
 <html xmlns="http://www.w3.org/1999/html">
 {% extends "busbookapp/base1.html" %}
 {% block content %}
+{% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
     <h1> update Driver details</h1>
     <form  method="POST">

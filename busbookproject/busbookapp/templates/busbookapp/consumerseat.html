@@ -1,0 +1,68 @@
+<!doctype html>
+{% load static %}
+
+
+<html>
+
+<head>
+    <title>Seat Reservation Site</title>
+
+     <link href='https://fonts.googleapis.com/css?family=Roboto+Mono&subset=greek,cyrillic' rel='stylesheet'>
+
+  <link rel="stylesheet" href="{% static 'css/jquery.seat-charts.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+</head>
+
+<body >
+<div style="background-color:red"></div>
+    <div class="wrapper">
+        <div class="container"  >
+            <div class="row">
+                <div class="grid-50">
+                    <div id="seat-map" align="right">
+                        <div class="front-indicator" style="color:white" >Bus Seat Reservation</div>
+                        <h4 class="text-info fw-bold text-center" style="padding-left:3em; margin:.5em">From Front Row</h4>
+                        <div id="bus-seat-map"></div>
+                        <h4 class="text-info fw-bold text-center" style="padding-left:3em; margin:.5em">End of Seat Row</h4>
+                    </div>
+                </div>
+                <div class="grid-50">
+                    <div class="booking-details" style="color:white">
+
+                        <form action="" method="post">
+
+                            <h2>Booking Details</h2>
+<!--                             <h3> Total Seats : (<span id="total-seat">35</span>)</h3>-->
+
+                            <h3> Selected Seats : (<span id="counter">0</span>)</h3>
+                            <h3> Total Seats :(<span id="counter">35</span>)</h3>
+                            <h3> Remaining Seats :(<span id="totalseat">35</span>)</h3>
+
+
+<!--                            <h3> Remaining Seats (<span id="rem-seat">35</span>):</h3>-->
+
+                            <ul id="selected-seats"></ul>
+
+                            <h2>Total: <b>Rs.<span id="total">0</span></b></h2>
+
+                            <button type="button" id="checkout-button">Submit Book</button>
+
+                        </form>
+
+                        <div id="legend"></div>
+<!--                        <button id="reset-btn" type="button">Reset Bus Seat</button>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+      <script src="{% static 'js/jquery.seat-charts.js'%}"></script>
+   <script src="{% static './js/script.js' %}"></script>
+</body>
+
+</html>
