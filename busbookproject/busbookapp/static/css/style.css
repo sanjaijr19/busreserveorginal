@@ -1,13 +1,13 @@
 html,
 body {
-    height: 100%;
+    height: 130%;
     ;
     width: 100%;
     ;
 }
 
 body {
-    font-family: Georgia;
+    font-family:Sans-serif;
     max-height: 100%;
     overflow: auto;
     background-image: linear-gradient(to top, #30cfd0 0%, #036F75  100%);

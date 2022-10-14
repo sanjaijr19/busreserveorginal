@@ -4,38 +4,39 @@
 {% load static %}
 
 <html lang="en">
-<h1 align="center" > <font size="50" color="#00FAF3" face="Serif "> Welcome To Bus Resevation System</font>
-</h1>
+
+<h1 style="font-family:sans-serif;padding-left:50px; text-align:center">Welcome To Bus Reservation</h1>
+
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="{% static 'fonts/icomoon/style.css' %}">
+<!--    <link rel="stylesheet" href="{% static 'fonts/icomoon/style.css' %}">-->
 
-    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+<!--    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">-->
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+<!--    &lt;!&ndash; Bootstrap CSS &ndash;&gt;-->
+<!--    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">-->
 
     <!-- Style -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
-    <title>Multiple user login</title>
+    <title>SignUp</title>
   </head>
-  <body>
-  <div class="content">
+  <body >
+  <div class="content" >
     <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-md-6 contents">
+      <div class="row justify-content-left">
+        <div class="col-md-12 contents">
           <div class="row justify-content-center">
-            <div class="col-md-12">
-              <div class="form-block">
-                  <div class="mb-4">
-                      <h1 style="color:white">User Registration Page</h1>
+            <div class="col-md-4">
+              <div class="form-block" style="color:black">
+                  <div class="mb-3">
+
                 </div>
-                  <span class="mb-0 text-danger" >
+                  <span class="mb-0 text-warning" >
                 {% if msg %}
                     {{ msg | safe }}
                 {% else %}
@@ -44,8 +45,8 @@
               </span>
                 <form  method="post">
                     {% csrf_token %}
-                  <div class="form-group first">
-                    <label for="username">Username</label>
+                  <div class="form-group first" >
+                    <label for="username" >Username</label>
                       {{ form.username }}
                   </div>
                   <div class="form-group first">
@@ -57,33 +58,33 @@
                       {{ form.password1 }}
                   </div>
                   <div class="form-group last mb-4">
-                    <label for="password">confirm Password</label>
+                    <label for="password2">Confirm Password</label>
                       {{ form.password2 }}
                   </div>
-                  <div class="d-flex mb-5 align-items-center">
-                    <label class="control control--checkbox mb-0"><span class="caption">Admin</span>
+                  <div class="d-flex mb-2 align-items-center" >
+                    <label class="control control--checkbox mb-2 ml-3"  ><span class="caption" style="margin:9px" >Admin</span>
                         {{ form.is_admin }}
                       <div class="control__indicator"></div>
                     </label>
                   </div>
-                  <div class="d-flex mb-5 align-items-center">
-                    <label class="control control--checkbox mb-0"><span class="caption">customer</span>
+                  <div class="d-flex mb-2 align-items-center">
+                    <label class="control control--checkbox mb-2 ml-3"><span class="caption">customer</span>
                         {{ form.is_customer }}
                       <div class="control__indicator"></div>
                     </label>
                   </div>
-                  <div class="d-flex mb-5 align-items-center">
-                    <label class="control control--checkbox mb-0"><span class="caption">employee</span>
+                  <div class="d-flex mb-2 align-items-center">
+                    <label class="control control--checkbox mb-2 ml-3"  ><span class="caption">employee</span>
                         {{ form.is_employee }}
                       <div class="control__indicator"></div>
                     </label>
                   </div>
                     <span class="text-error">{{ form.errors }}</span>
-                  <input type="submit"  value="Register" class="btn btn-pill text-white btn-block btn-info">
+                  <input type="submit"  value="Register" class="btn btn-pill text-white btn-block btn-success">
                 </form>
                  <div class="mt-4">
-                        <div class="d-flex justify-content-center links" style="color:#19a5e1">
-                            Already have an account? <a href="{% url 'login' %}" class="ml-2" style="color:#1AB5DF ">Login</a>
+                        <div class="d-flex justify-content-center links" style="color:green">
+                            Already have an account? <a href="{% url 'login' %}" class="ml-2" style="color:blue ">Login</a>
                         </div>
             </div>
               </div>

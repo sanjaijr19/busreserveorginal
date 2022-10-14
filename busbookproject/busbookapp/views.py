@@ -14,7 +14,7 @@ from django.core.mail import EmailMessage
 from django.shortcuts import render,redirect
 from django.template.loader import render_to_string
 from .forms import ContactForm
-
+from django.contrib import messages
 def index(request):
     return render(request, 'busbookapp/index.html')
 
@@ -27,7 +27,8 @@ def register(request):
             username = form.cleaned_data.get('username')
             email = form.cleaned_data.get('email')
             if User.objects.filter(email=email).exists():
-                raise ValidationError("Email already exists")
+                messages.error(request,"Email already exists")
+                return redirect("register")
             password1 = form.cleaned_data.get('password1')
             password2 = form.cleaned_data.get('password2')
             user = form.save()
@@ -39,8 +40,8 @@ def register(request):
                 to=[email],
                 reply_to=[email])
             email_msg.send()
-            msg = 'user created'
             return redirect('login')
+
         else:
             msg = 'form is not valid'
     else:

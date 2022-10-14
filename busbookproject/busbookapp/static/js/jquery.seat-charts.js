@@ -461,42 +461,6 @@
 			tabIndex : 0
 		});
 
-	settings.legend.items.length ? (function(legend) {
-			//either use user-defined container or create our own and insert it right after the seat chart div
-//			var $totalseat = (legend.node || $('<div></div').insertAfter(fn))
-				.addClass('seatCharts-legend');
-
-			var $ul = $('<ul></ul>')
-				.addClass('seatCharts-legendList')
-				.appendTo($totalseat);
-
-			$.each(legend.items, function(index, item) {
-				$ul.append(
-					$('<li></li>')
-						.addClass('seatCharts-legendItem')
-						.append(
-							$('<div></div>')
-								//merge user defined classes with our standard ones
-								.addClass(['seatCharts-seat','seatCharts-cell', item[1]].concat(
-									settings.classes,
-									typeof settings.seats[item[0]] == "undefined" ? [] : settings.seats[item[0]].classes).join(' ')
-								)
-						)
-						.append(
-							$('<span></span>')
-								.addClass('seatCharts-legendDescription')
-								.text(item[2])
-						)
-				);
-			});
-
-			return $totalseat;
-		})(settings.legend) : null;
-
-		fn.attr({
-			tabIndex : 0
-		});
-
 
 		//when container's focused, move focus to the first seat
 		fn.focus(function() {
